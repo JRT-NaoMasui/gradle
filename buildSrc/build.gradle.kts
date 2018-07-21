@@ -29,7 +29,7 @@ buildscript {
 }
 
 plugins {
-    `kotlin-dsl`
+    `kotlin-dsl` // to get the accessors
     id("org.gradle.kotlin.ktlint-convention") version "0.1.8" apply false
 }
 
