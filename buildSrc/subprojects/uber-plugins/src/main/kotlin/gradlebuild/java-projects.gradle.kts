@@ -21,7 +21,7 @@ apply {
     plugin("gradlebuild.distribution-testing")
     plugin("gradlebuild.int-test-image")
 
-    if (file("src/integTest").isDirectory || file("src/smokeTest").isDirectory) {
+    if (file("src/integTest").isDirectory) {
         plugin("gradlebuild.integration-tests")
     }
 
