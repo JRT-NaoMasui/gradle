@@ -16,10 +16,13 @@
 
 package org.gradle.internal.fingerprint;
 
+import com.google.common.collect.Multimap;
 import org.gradle.api.internal.changedetection.rules.TaskStateChange;
 import org.gradle.api.internal.changedetection.rules.TaskStateChangeVisitor;
 import org.gradle.api.internal.changedetection.state.NormalizedFileSnapshot;
+import org.gradle.internal.hash.HashCode;
 
+import javax.annotation.Nullable;
 import java.util.Map;
 
 /**
@@ -38,6 +41,12 @@ public interface FileCollectionFingerprint {
      * The underlying snapshots.
      */
     Map<String, NormalizedFileSnapshot> getSnapshots();
+
+    /**
+     * The Merkle hashes of the roots which make up this file collection fingerprint.
+     */
+    @Nullable
+    Multimap<String, HashCode> getRootHashes();
 
     /**
      * Converts the {@link FileCollectionFingerprint} into a {@link HistoricalFileCollectionFingerprint} which can be serialized in the task history.
